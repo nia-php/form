@@ -1,0 +1,25 @@
+{
+  "name" : "nia/form",
+  "description" : "The form component is used to validate data against the field definitions of a form.",
+  "require" : {
+    "php" : ">=7.0.0",
+    "nia/validation" : "*",
+    "nia/sanitizing" : "*"
+  },
+  "license" : "MIT",
+  "keywords" : [ "nia", "request", "response" ],
+  "minimum-stability" : "dev",
+  "autoload" : {
+    "psr-4" : {
+      "Nia\\Form\\" : "sources/",
+      "Test\\Nia\\Form\\" : "tests/"
+    }
+  },
+  "type" : "library",
+  "homepage" : "http://www.nat-software.de",
+  "authors" : [ {
+    "name" : "Patrick Ullmann",
+    "email" : "patrick.ullmann@nat-software.de",
+    "role" : "lead"
+  } ]
+}
