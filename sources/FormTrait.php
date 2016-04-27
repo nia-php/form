@@ -77,8 +77,10 @@ trait FormTrait
 
             $value = $this->sanitizers[$fieldName]->sanitize($value);
             $context->set($fieldName, $value);
+        }
 
-            $violations = $this->validators[$fieldName]->validate($value);
+        foreach ($this->fieldNames as $fieldName) {
+            $violations = $this->validators[$fieldName]->validate($context->get($fieldName), $context);
 
             if (count($violations) !== 0) {
                 $result[$fieldName] = $violations;
