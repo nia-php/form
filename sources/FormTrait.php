@@ -73,7 +73,7 @@ trait FormTrait
         $result = [];
 
         foreach ($this->fieldNames as $fieldName) {
-            $value = $data->tryGet($fieldName, '');
+            $value = $data->tryGet($fieldName, $context->tryGet($fieldName, ''));
 
             $value = $this->sanitizers[$fieldName]->sanitize($value);
             $context->set($fieldName, $value);

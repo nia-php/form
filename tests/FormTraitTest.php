@@ -31,16 +31,18 @@ class FormTraitTest extends PHPUnit_Framework_TestCase
         $form = $this->createForm();
         $form->addField('username', new LengthValidator(4, 16), new TrimSanitizer());
         $form->addField('password');
+        $form->addField('dummy');
 
         // success
         $context = new Map([
             'username' => ' a b c ',
             'password' => ' d e f ',
-            'unused' => 'foobar i am unused'
+            'unused' => 'foobar i am unused',
+            'dummy' => 'foobar'
         ]);
         $data = new Map([
             'username' => ' my-nick ',
-            'password' => ' xxx ',
+            'password' => ' xxx '
         ]);
 
         $violations = $form->validate($data, $context);
@@ -50,6 +52,7 @@ class FormTraitTest extends PHPUnit_Framework_TestCase
             'username' => 'my-nick',
             'password' => ' xxx ',
             'unused' => 'foobar i am unused',
+            'dummy' => 'foobar'
         ], iterator_to_array($context));
 
         // fail
@@ -74,6 +77,7 @@ class FormTraitTest extends PHPUnit_Framework_TestCase
             'username' => 'a',
             'password' => ' xxx ',
             'unused' => 'foobar i am unused',
+            'dummy' => ''
         ], iterator_to_array($context));
     }
 
