@@ -10,7 +10,7 @@
 declare(strict_types = 1);
 namespace Test\Nia\Form;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Nia\Form\FormTrait;
 use Nia\Form\FormInterface;
 use Nia\Collection\Map\StringMap\Map;
@@ -20,7 +20,7 @@ use Nia\Sanitizing\TrimSanitizer;
 /**
  * Unit test for \Nia\Form\FormTrait.
  */
-class FormTraitTest extends PHPUnit_Framework_TestCase
+class FormTraitTest extends TestCase
 {
 
     /**
